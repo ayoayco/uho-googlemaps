@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<!--
+	by Ayo Ayco
+	http://ayco.tk
+-->
+
+<html>
+<head>
+  
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>UPLB | University Housing Office</title>
+	
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+  	
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+  <script type='text/javascript' src='js/example.js'></script>
+  <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=true'></script>
+  
+  <script type='text/javascript'>
+  
+    $(function() {
+    
+      var uplb = new google.maps.LatLng(14.16760, 121.24342),
+          pointToMoveTo, 
+          first = true,
+          curMarker = new google.maps.Marker({}),
+          $el;
+      
+      var myOptions = {
+          zoom: 18,
+          center: uplb,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+      
+      var map = new google.maps.Map($("#map_canvas")[0], myOptions);
+    
+      $("#locations li").mouseenter(function() {
+      
+        $el = $(this);
+                
+        if (!$el.hasClass("hover")) {
+        
+          $("#locations li").removeClass("hover");
+          $el.addClass("hover");
+        
+          if (!first) { 
+            
+            // Clear current marker
+            curMarker.setMap(); 
+            
+            // Set zoom back to uplb level
+            // map.setZoom(10);
+          }
+          
+          // Move (pan) map to new location
+          pointToMoveTo = new google.maps.LatLng($el.attr("data-geo-lat"), $el.attr("data-geo-long"));
+          map.panTo(pointToMoveTo);
+          
+          // Add new marker
+          curMarker = new google.maps.Marker({
+              position: pointToMoveTo,
+              map: map,
+              icon: "images/marker3.png"
+          });
+          
+          // On click, zoom map
+          google.maps.event.addListener(curMarker, 'click', function() {
+             map.setZoom(20);
+          });
+          
+          
+          // No longer the first time through (re: marker clearing)        
+          first = false; 
+        }
+        
+      });
+      
+      $("#locations li:first").trigger("mouseenter");
+      
+    });
+
+  </script>
+
+</head>
+
+<body>
+	<a href="index.html" style="text-decoration: none;"><h1>UPLB Dormitories</h1></a>
+	<div id="page-wrap">
+	   <div id="row">
+			<div id="map_canvas">
+			</div>
+			<div id="right_column">
+				<h2>Choose Your Dorm:</h2>
+				<ul id="locations" class="sidebar">
+					
+					<li data-geo-lat="14.16154" data-geo-long="121.24061"><a class="dormlinks" href="mens_tour.html"><h3>Men's Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.16220" data-geo-long="121.24036"><a class="dormlinks" href="womens_tour.html"><h3>Women's residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.16079" data-geo-long="121.24008"><a class="dormlinks" href="vet_tour.html"><h3>Veterinary Medicine Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.16281" data-geo-long="121.24019"><a class="dormlinks" href="acci_tour.html"><h3>ACCI Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.16324" data-geo-long="121.23950"><a class="dormlinks" href="int_tour.html"><h3>International House</h3></a></li>
+					
+					<li data-geo-lat="14.15563" data-geo-long="121.24093"><a class="dormlinks" href="new_tour.html"><h3>New Dormitory</h3></a></li>
+					
+					<li data-geo-lat="14.15638" data-geo-long="121.24121"><a class="dormlinks" href="atintc_tour.html"><h3>ATI-NTC Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.15250" data-geo-long="121.23474"><a class="dormlinks" href="foreha_tour.html"><h3>Forestry Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.15182" data-geo-long="121.23515"><a class="dormlinks" href="mareha_tour.html"><h3>Makiling Residence Hall</h3></a></li>
+					
+					<li data-geo-lat="14.15221" data-geo-long="121.23440"><a class="dormlinks" href="newforeha_tour.html"><h3>New Forestry Residence Hall</h3></a></li>
+					
+				</ul>
+			</div>
+     </div>
+     
+	</div>
+	<div id="footer">2012 &copy; by UPLB University Housing Office. All Rights Reserved.<span style="font-size: xx-small;"><br />Development and Design by <a style="color: black;" href="http://ayco.tk">Ayo Ayco</a>.</span></div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+/*
+	 by Ayo Ayco
+*/
+
+* { margin: 0; padding: 0; }
+body { font: 14px Georgia, serif; color: #222; background: white; }
+
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
+
+
+/*HEADER*/
+
+header
+{
+	position: relative;
+	width: 100%;
+	height: 70px;
+	padding-bottom: 20px;
+	border-top: solid 15px #7B1113;
+	border-bottom: solid thin #014421;
+}
+
+
+#right_column, #map_canvas {
+	display: table-cell;
+	vertical-align: top;
+	min-width: 350px;
+}
+
+#image {
+
+}
+
+#map_canvas{
+  width: 100%;
+}
+
+.middle {
+  width: 100%;
+  background: #eee;
+  padding: 50px;
+}
+
+#row { 	
+	display: table-row;
+}
+
+#footer {
+	width: 100%;
+	text-align: center;
+	font: xx-small Helvetica, Arial, Sans-Serif;
+	color: #333;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 15px;
+}
+
+#page-wrap { 
+	width: 100%;
+	margin: 30px auto; 
+	display: table;
+	background: #8e171a;
+}
+
+h1 { margin: 15px; font: bold 48px Helvetica, Arial, Sans-Serif; letter-spacing: 0px; color: #8e171a;}
+h2 { margin: 15px; font: bold 32px Helvetica, Arial, Sans-Serif; letter-spacing: -1px; text-shadow: 0 1px 0px rgba(255,255,255,0.3); }
+h3 { margin: 0; font: bold 15px Helvetica, Arial, Sans-Serif; letter-spacing: 2px; }
+.dormlinks { text-decoration: none; }
+#locations, .dormlinks, .sidebar{ list-style: none; width: 280px; background: #8e171a; color: white; }
+#locations li, .sidebar li { min-height: 24px; padding: 10px; position: relative; z-index: 20;}
+#locations li:hover, .sidebar li:hover { background: transparent url(images/arrow.png) top left no-repeat; padding-left:40px; margin-left: -30px; color: white; cursor: pointer;}

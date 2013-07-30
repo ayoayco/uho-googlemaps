@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!--
+	by Ayo Ayco
+	http://ayco.tk
+-->
+
+<html>
+  <head>
+	<title>Men's Residence Hall | University Housing Office | UPLB</title>
+    <meta charset='utf-8' content='text/html' http-equiv='Content-type' />
+
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+    <script src='jquery-1.7.min.js' type='text/javascript'></script>
+    <script src='jquery.reel-1.2-bundle.js' type='text/javascript'></script>
+
+    <style>
+      .reel-annotation {
+        white-space: nowrap;
+        font-size: 23px;
+        color: black;
+      }
+      #Chairs {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+	<a href="index.html" style="text-decoration: none;"><h1>Men's Residence Hall</h1></a>
+	<div id="page-wrap">
+		<div id="row">
+			<div id="map_canvas" class="middle">
+				<!-- rename dorm room panorama image to "mareharoom-reel.jpg" with dimensions: 1652x150 then create a thumbnail image named "mareharoom.jpg" with dimensions: 800x150 ... -->
+				<p><img id="image" src='images/mareharoom.jpg' width="800" height="150" align="right" /></p>
+				<p style="font-size: x-small;">Tip: Scroll or Drag image sideways to view the dormitory room.</p>
+				<p><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum gravida enim, quis ultricies mauris posuere quis. Duis adipiscing tincidunt sagittis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam a felis vitae augue lobortis dictum. Curabitur molestie posuere laoreet. Ut pellentesque nunc in lorem egestas non imperdiet enim congue.</p>
+				<script>
+				  $(function(){ // when DOM ready
+
+					$('#image').reel({
+					  indicator:   5, // For no indicator just remove this line
+					  stitched:    1652,
+					  loops:       true,
+					  steps:       200,
+					  step:        10,
+					  speed:       -0.07,
+					  timeout:     0,
+					});
+
+				  });
+				</script>
+			</div>
+			<div id="right_column">
+				<h2>Navigation Menu:</h2>
+				<ul class="sidebar">
+					<li><a class="dormlinks" href="index.html"><h3>Home Page<h3></a></li>
+					<li><a class="dormlinks" href="interactive_map.html"><h3>Interactive Map<h3></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">2012 &copy; by UPLB University Housing Office. All Rights Reserved.<span style="font-size: xx-small;"><br />Development and Design by <a style="color: black;" href="http://ayco.tk">Ayo Ayco</a>.</span></div>
+  </body>
+</html>
+
